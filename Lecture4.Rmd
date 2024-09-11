@@ -1,0 +1,86 @@
+---
+title: "Lecture4"
+author: "gpryu"
+date: "2024-09-11"
+output: html_document
+---
+getwd()
+mydata <- read.csv("data1.csv", header = T)
+ls() #check out loaded data
+class(mydata) #data type check out
+str(mydata) #data type check out
+
+#Select Variables
+mydata2 <- mydata[c(1:6, 10, 11)] #indexing method
+mydata3 <- mydata[c(1,3,4)]
+mydata4 <- cbind(mydata$ID, mydata$PID, mydata$SURVEY1_w1)
+View(mydata2)
+
+#Select Cases
+mydata4 <- mydata[mydata$S_GENDER_w1==1, ]
+mydata5 <- mydata[mydata$income_01_w1 >100, c(1:10)]
+
+#using subset function
+mydata6 <- subset(mydata, subset = (S_GENDER_w1==1),
+                  select = c("ID", "PID", "SURVEY1_w1"))
+
+#Removing dataset
+rm(mydata6)
+str(mydata5)
+mydata5$ID <- NULL
+str(mydata5)
+
+##Missing Treatment
+#Check out missings
+rowSums(is.na(mydata5))
+colSums(is.na(mydata5))
+summary(mydata5$par_age_2_w1)
+
+#missing treatment
+summary(mydata$income_01_w1)
+mydata$income_01_w1[mydata$income_01_w1 < 0] <- NA
+summary(mydata$income_01_w1)
+
+missing <- rowSums(is.na(mydata5))
+com.data5 <- mydata5[complete.cases(mydata5), ]
+
+##Data Recoding
+table(mydata$S_GENDER_w1)
+mydata$S_GENDER_w1 <- ifelse(mydata$S_GENDER_w1 == 1, 0, 1)
+table(mydata$S_GENDER_w1)
+
+#Data Labeling
+mydata$S_GENDER_w1 <- factor(mydata$S_GENDER_w1)
+str(mydata$S_GENDER_w1)
+mydata$S_GENDER_w1 <- factor(mydata$S_GENDER_w1,
+                             levels = c(0,1),
+                             labels = c("M", "F"))
+table(mydata$S_GENDER_w1)
+
+str(mydata3)
+colnames(mydata3) <- c("ID", "WAVE", "SURVEY")
+str(mydata3)
+
+#Chaning variable order
+str(mydata3)
+mydata3 <- mydata3[, c(2,3,1)] 
+str(mydata3)
+sort(mydata3$ID, decreasing = T)
+
+#Binding & Merging Dataframe
+#column bind
+sub.data1 <- mydata[c(1:5)]
+sub.data2 <- mydata[c(6:10)]
+colbind1 <- cbind(sub.data1, sub.data2)
+View(colbind1)
+
+#row bind
+sub.data4 <-mydata[sample(nrow(mydata), 100), ]
+sub.data5 <-mydata[sample(nrow(mydata), 100), ]
+rowbind1 <- rbind(sub.data4, sub.data5)
+
+#two dataset merging
+subdata6 <- mydata[mydata$ID < 300, c(1:10)] 
+subdata7 <- mydata[mydata$ID >= 200 & mydata$ID <= 500 , c(1:5,7,8,9)] 
+mergedata <- merge(subdata6, subdata7, by = "ID")
+
