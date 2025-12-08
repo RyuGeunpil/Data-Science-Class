@@ -40,7 +40,7 @@ levels = c("여성", "남성", "기타"))
 
 new_gender_factor
 ```
-
+---
 ### 2.자료 구조의 이해
 
 #### 자료 형식의 유형 구분
@@ -77,6 +77,7 @@ my_array2
 ```
 
 - **다른 형식의 자료:** 다양한 데이터 형식이 존재하지만 행과 열로 구성된 데이터프레임(dataframe)과 다양한 차원으로 구성된 리스트(list) 구조가 있음 <br>
+
 **데이터프레임(dataframe) 구조:** 다양한 형식을 갖고 있는 열 벡터들의 모임이며, dataframe() 함수를 사용하여 생성
 ```
 df <- data.frame(name=c("kim", "lee", "park", "choi"), 
@@ -92,3 +93,4 @@ my_list1 <- list(c(1:5),
                 c("red", "black", "white"))
 my_list1
 ```
+---
