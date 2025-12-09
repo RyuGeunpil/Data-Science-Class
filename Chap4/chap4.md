@@ -16,6 +16,6 @@ getwd()
 | 패키지         | 함수            | 목적              |
 |:- ------------:|:---------------:|:-----------------:|
 | 기본패키지     | read.csv()      | csv 파일을 읽음 때 사용   |
-| 기본패키지     | | read.table()  | txt 파일을 읽음 때 사용   |
+| 기본패키지     | read.table()  | txt 파일을 읽음 때 사용   |
 | readxl        | read_excel()     | excel 파일을 읽을 때 사용 |
 | openxlsx      | read.xlsx()      | xlsx 파일을 읽을 때 사용|
