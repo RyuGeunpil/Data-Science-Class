@@ -19,3 +19,9 @@ getwd()
 | 기본 패키지 | read.table() | TXT 파일을 읽을 때 사용       |
 | readxl     | read_excel()  | Excel 파일을 읽을 때 사용     |
 | openxlsx  | read.xlsx()  | XLSX 파일을 읽을 때 사용      |
+| haven  | read_sav()  | spss 파일을 읽을 때 사용      |
+| haven  | read_sas()  | sas 파일을 읽을 때 사용      |
+| haven  | read_dta()  | stata 파일을 읽을 때 사용      |
+
+###위 패키지 설치하기 위해서는 install.packages()을 사용한다. 예를 들어, haven 패키지를 설치하기 위해서는 
+```install.packages("haven")```을 입력한다.
