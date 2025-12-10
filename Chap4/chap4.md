@@ -146,7 +146,7 @@ rm(data2, data3, data4, data5) #데이터 세트를 제거함
 
 ### 4.데이터의 변형과 가공
 
-- **변수명 변경 :** 변수명을 보다 직관적으로 이해할 수 있도록 변수명을 수정함
+- **변수명 변경(Variable Rename) :** 변수명을 보다 직관적으로 이해할 수 있도록 변수명을 수정함
 
 **colnames()함수 활용:** 변수명 수정
 ```
@@ -159,3 +159,38 @@ str(data2)
 colnames(data2)[2:5] <- c("branch", "found", "course", "daynight") #변수명을 차례대로 입력하여 변경
 str(data2)
 ```
+
+- **새로운 변수 생성(Generating a New Variabl) :** 새로운 변수를 선형변환을 통해 생성할 수 있음
+```
+data2$new_age <- data2$g191age*10 #기존 연령변수에 10을 곱한 후 새로운 변수인 new_age로 저정함
+
+mean(data2$g191age, na.rm = T) #기존 변수의 평균값 계산
+mean(data2$new_age, na.rm= T) #새로운 변수의 평균값 계신
+```
+
+- **변수 리코딩(Data Recoding) 생성 :** ifelse()함수를 활용해 기존 변수에 입력된 코딩을 변경함
+ ```
+table1 <- table(data2$g191age)
+print(table1)
+data2$recoding1 <-  ifelse(data2$g191age < 30, 1,
+                    ifelse(data2$g191age < 40, 2,
+                    ifelse(data2$g191age < 50, 3,
+                    ifelse(data2$g191age < 60, 4, 5))))
+table2 <- table(data2$recoding1)
+print(table2)
+```
+
+- **범주형 변수 라벨링(Factor Leveling) :** 범주형 변수에 factor() 함수를 통해 하위 범주에 수를 입력하여 분석에 활용함
+```
+table3 <- table(data2$g191sex)
+print(table3)
+
+data2$g191sex <- factor(data2$g191sex, 
+                        levels = c("1", "2"), 
+                        labels = c("Male", "Female"))
+
+table4 <- table(data2$g191sex)
+print(table4)
+```
+
+ 
