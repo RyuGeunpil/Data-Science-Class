@@ -72,5 +72,27 @@ x2 <- round(prop.table(x1),2) #빈도의 비율 계산
 print(x2)
 ```
 
+- **2차원 빈도분석:** 2개 범주형 변수에 대한 빈도 분석을 실시
+**교차표 만들기:** addmargin() 함수를 통해 2개 범주형 변수의 하위 범주에 대한 전체 빈도를 총합 계산함
 
+```
+crosstable1 <- table(data2$g191sex, data2$g191majorcat)
+print(crosstable1)
+
+sumtable1 <- addmargins(crosstable1)
+print(sumtable1)
+```
+
+**교차 비율표 만들기:** prop.table 함수를 통해 2개 범주형 변수의 하위 범주에 대한 비율을 통합적으로 계산함 <br>
+addmargin 함수를 통해 비율을 계사할 수 있음
+```
+prop.table(crosstable1)
+percent <- round(prop.table(crosstable1)*100,2) #100 곱하여 %로 변환하였으며, round() 함수를 통해 소수점 2자리로 표현
+print(percent)
+
+addmargins(percent, margin = 1) #열기춘 합
+addmargins(percent, margin = 2) #행기준 합
+addmargins(percent, margin = c(1,2)) #행렬 모두 총합 계산
+```
+  
   
