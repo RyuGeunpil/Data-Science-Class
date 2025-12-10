@@ -115,3 +115,47 @@ sum(is.na(data1$g191age)) #결측치가 없어졌음을 확인할 수 있음
 ```
 com.data1 <- data1[complete.cases(data1), ]
 ```
+
+### 3.데이터 자르기와 합치기
+
+- **데이터 자르기 :** 데이터 자르기(Data Subsetting, Slicing)란, 방대한 양의 데이터가 있을 때 특정 분석 목적에 맞는 부분만 선택하고, 불필요한 나머지 데이터를 제외하는 과정을 의미함
+
+**변수기준 데이터 자르기:** 
+```
+data2 <- data1[, c(1:100)] #대괄호 인덱싱에서 배웠던 것처럼 전체 행을 포함하고, 1~100번째 열(변수)를 추출함
+dim(data2)
+
+data3 <- data1[, c("g191pid", "g191branch", "g191dpmt")] #전체 행을 포함하고, 3개 변수만을 지정하여 추출함
+dim(data3)
+```
+
+**케이스 기준 필터링(filtering):** 특정 변수의 조건에 맞는 케이스 만을 추출할 경우 사용함
+```
+data4 <- data1[data1$g191age >= 24, ] #연령변수 24세 이상만 추출하여 data4로 저장
+dim(data4)
+```
+
+**subset()함수 활용:** 데이터 자르기를 하는데 활용되는 함수
+```
+data5 <- subset(data1, subset= g191age >= 24,
+ select = c(1:10) )
+dim(data5)
+
+rm(data2, data3, data4, data5) #데이터 세트를 제거함
+```
+
+### 4.데이터의 변형과 가공
+
+- **변수명 변경 :** 변수명을 보다 직관적으로 이해할 수 있도록 변수명을 수정함
+
+**colnames()함수 활용:** 변수명 수정
+```
+data2 <- data1[, 1:15]
+str(data2)
+
+colnames(data2)[1] <- "id" #1열을 id 명으로 변경
+str(data2)
+
+colnames(data2)[2:5] <- c("branch", "found", "course", "daynight") #변수명을 차례대로 입력하여 변경
+str(data2)
+```
