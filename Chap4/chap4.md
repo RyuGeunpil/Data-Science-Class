@@ -62,3 +62,44 @@ getwd()
 df_2 <- read.csv("example1.csv", header=T)
 df_3 <- read.table("example2.txt", header=T)
 ```
+
+### 2.데이터 세트 탐색 및 결측치 처리
+
+- **데이터 세트 탐색:** 데이터 탐색(Exploratory Data Analysis, EDA)은 수집된 데이터를 본격적으로 분석하기 전에 자료의 전반적인 구조와 특성을 이해하는 과정을 의미
+
+**데이터 세트 구조 파악:** 데이터 프레임의 변수, 케이스 수를 파악함
+```
+data1 <- read.csv("dataset2.csv", header = T) #데이터 탑재
+str(data1)
+
+class(data1$g191dpmt_n) #변수의 형식 파악
+dim(data1) #데이터 프레임의 변수와 케이스 수를 파악
+nrow(data1) #케이스 수 파악
+ncol(data1) #변수의 수를 파악
+length(data1) #케이스 수를 파악
+```
+
+**데이터 세트 변수명 및 개괄적 파악:**변수의 수와 입력 형태를 파악함
+```
+names(data1) #변수명을 보여줌
+
+head(data1): 데이터 세트의 앞 6줄을 보여줌
+tail(data1): 데이터 세트의 뒤 6줄을 보여줌
+
+head(data1, 10): 데이터 세트의 앞 10줄로 변경하여 보여줌
+tail(data1, 10): 데이터 세트의 뒤 10줄로 변경하여 보여줌
+```
+
+- **결측치(Missings) 확인과 처리 :** 결측치(Missing value)란 특정 변수에서 값이 존재하지 않는 경우를 의미함. 결측치 파악은 결과에서의 오류를 사전에 예방할 수 있음
+
+**변수 별 결측치의 확인:**해당 변수의 결측치 수를 파악함
+```
+is.na(data1$g191age) #이 변수의 결측치가 있는지 논리값으로 변환하여 보여줌
+sum(is.na(data1$g191age)) #TRUE수를 계산하여 보여줌
+
+col_missings <- colSums(is.na(data1)) #데이터 세트 전체 변수별 결측치를 보여줌
+print(col_missings)
+
+row_missings <- rowSums(is.na(data1)) #데이터 세트의 케이스별 결측치의 수를 보여줌
+print(row_missings)
+```
