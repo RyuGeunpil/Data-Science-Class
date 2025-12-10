@@ -54,4 +54,4 @@ skewness(data2$age_under30, na.rm = T) #왜도
 kurtosis(data2$age_under30, na.rm = T) #첨도는 3을 기준으로 함
 ```
    
-
+### 4.범주형 변수의 빈도와 비율 분포
