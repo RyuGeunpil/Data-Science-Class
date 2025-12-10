@@ -55,3 +55,22 @@ kurtosis(data2$age_under30, na.rm = T) #첨도는 3을 기준으로 함
 ```
    
 ### 4.범주형 변수의 빈도와 비율 분포
+- **단일 변수 빈도분석:** 1개 범주형 변수에 대한 빈도 분석을 실시
+**빈도 도수표 만들기:** table() 함수를 통해 범주형 변수의 하위 범주에 대한 빈도를 계산함
+**빈도 비율표 만들기:** prop.table() 함수를 통해 범주형 변수의 하위 범주에 대한 비율을 계산함
+```
+table1 <- table(data2$g191majorcat)
+print(table1)
+
+data2$g191majorcat <- factor(data2$g191majorcat,
+  levels = c("1", "2", "3", "4", "5", "6", "7"),
+labels = c("인문", "사회", "교육", "공학", "자연", "의학", "예체")) #범주형 변수에 factor 함수를 통해 하위범주 레이블 작성
+
+x1 <- table(data2$g191majorcat) #빈도 도수표 
+print(x1)
+x2 <- round(prop.table(x1),2) #빈도의 비율 계산
+print(x2)
+```
+
+
+  
