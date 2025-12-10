@@ -103,3 +103,15 @@ print(col_missings)
 row_missings <- rowSums(is.na(data1)) #데이터 세트의 케이스별 결측치의 수를 보여줌
 print(row_missings)
 ```
+
+**결측치 변환:** ifelse 조건문을 통해 해당 조건에 만족할 경우 결측치로 처리(예: 이상값 처리 경우)
+```
+summary(data1$g191age)
+data1$g191age <- ifelse(data1$g191age < 23, NA, data1$g191age) #나이가 23 미만일 경우 결측치로 
+sum(is.na(data1$g191age)) #결측치가 없어졌음을 확인할 수 있음
+```
+
+**결측치 제거:** complete.case() 함수를 통해 결측치를 전체적으로 제거할 수 있음
+```
+com.data1 <- data1[complete.cases(data1), ]
+```
