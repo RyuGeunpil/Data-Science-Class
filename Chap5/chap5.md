@@ -48,7 +48,7 @@ hist(data2$g191age, breaks = 100, main = "연령 분포1", col = "pink", border 
 data2$age_under30 <- ifelse(data2$g191age > 30, NA, data2$g191age) #30대 이상을 결측치로 처리하여 age_under30으로 저장함
 hist(data2$age_under30, breaks = 10, main = "연령 분포2", col = "pink", border = "blue") #break 인자를 조정하여 자료를 짤라 보여짐    
 
-#install.packages("moments") #기본 패키지에는 왜도와 첨도 구하는 함수가 없어서 외부 패키지 설치 후 아래 함수 입력하여 계산
+install.packages("moments") #기본 패키지에는 왜도와 첨도 구하는 함수가 없어서 외부 패키지 설치 후 아래 함수 입력하여 계산
 library(moments) #moment 패키지를 탑재
 skewness(data2$age_under30, na.rm = T) #왜도
 kurtosis(data2$age_under30, na.rm = T) #첨도는 3을 기준으로 함
