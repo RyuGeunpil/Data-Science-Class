@@ -1,4 +1,4 @@
-<h2 style="text-align: center;">제4장 자료의 전저 </h2>
+<h2 style="text-align: center;">제4장 자료의 전처리 </h2>
 
 ### 1.데이터 탑재 및 저장하기
 
