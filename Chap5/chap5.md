@@ -2,6 +2,9 @@
 
 ### 1.변수의 측정과 척도
 
+---
+### 2.자료의 중심경향성과 흩어짐 측정
+
 - **자료의 중심경향성 측정:** 자료가 얼마나 중심에 모여 있는지를 보여주는 지표를 의미함
   
 **평균:** mean() 함수를 통해 자료의 평균값을 구함, 극단값에 의하여 영향을 받는 단점이 존재함
@@ -31,7 +34,24 @@ sd(a)
 range(a)
 IQR(a)
 ```
+---
+### 3.데이터의 분포
 
+- **모집단의 분포와 표본의 분포:** 모집단의 분포를 알 수 없기 때문에 표본을 통해 모집단의 분포를 추정
+- **연속형 vs 이산형 분포:** 자료의 형식에 의하여 분포가 달라짐
+- **정규분포 추정:** 좌우대칭의 종 모양 곡선을 갖고, t-검정, z-검정에서 활용되는 분포가 바로 이 분포임
+**왜도(Skewness):** 데이터의 평균값이 어느 정도 치우쳐 있는지를 측정함
+**첨도(Kurtosis):** 데이터가 정규분포에 비하여 어느 정도 솟아 있는지를 측정함
 
-quantile(a, probs = c(0.25, 0.5, 0.75))
+```
+hist(data2$g191age, breaks = 100, main = "연령 분포1", col = "pink", border = "blue") #연속형 변수인 age를 히스토그램으로 표본의 형태 파착
+data2$age_under30 <- ifelse(data2$g191age > 30, NA, data2$g191age) #30대 이상을 결측치로 처리하여 age_under30으로 저장함
+hist(data2$age_under30, breaks = 10, main = "연령 분포2", col = "pink", border = "blue") #break 인자를 조정하여 자료를 짤라 보여짐    
+
+#install.packages("moments") #기본 패키지에는 왜도와 첨도 구하는 함수가 없어서 외부 패키지 설치 후 아래 함수 입력하여 계산
+library(moments) #moment 패키지를 탑재
+skewness(data2$age_under30, na.rm = T) #왜도
+kurtosis(data2$age_under30, na.rm = T) #첨도는 3을 기준으로 함
+```
+   
 
