@@ -62,6 +62,7 @@ getwd()
 df_2 <- read.csv("example1.csv", header=T)
 df_3 <- read.table("example2.txt", header=T)
 ```
+---
 
 ### 2.데이터 세트 탐색 및 결측치 처리
 
@@ -115,6 +116,7 @@ sum(is.na(data1$g191age)) #결측치가 없어졌음을 확인할 수 있음
 ```
 com.data1 <- data1[complete.cases(data1), ]
 ```
+---
 
 ### 3.데이터 자르기와 합치기
 
@@ -143,6 +145,7 @@ dim(data5)
 
 rm(data2, data3, data4, data5) #데이터 세트를 제거함
 ```
+---
 
 ### 4.데이터의 변형과 가공
 
