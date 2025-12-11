@@ -106,12 +106,11 @@ abline(h=m1, col="green", lty="solid", lwd=2)
 - **그래픽 전문함수 ggplot2 패키지:** ggplot2 패키지는 보다 전문화된 데이터 시각화 도구임
 
 **ggplot2 그래프 구성**
-#### Data Layer(data): 시각화를 위해 활용될 데이터세트를 지정함
-#### Aesthetics Layer(aes): 변수 지정과 시각화를 지정함
-#### Geom Layer(geom): 그래프의 형태를 지정(예: geom_point, geom_bar, …)
-#### 기타 layer:
 
-
+##### Data Layer(data): 시각화를 위해 활용될 데이터세트를 지정함
+##### Aesthetics Layer(aes): 변수 지정과 시각화를 지정함
+##### Geom Layer(geom): 그래프의 형태를 지정(예: geom_point, geom_bar, …)
+##### 기타 layer:
 
 - **막대 그래프:**
 ```
