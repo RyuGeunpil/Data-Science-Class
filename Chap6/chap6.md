@@ -14,6 +14,7 @@
 | **3변수(연속/연속/연속)**     | 키 & 몸무게 & 성적 | 등치선도(contour plot)                           |
 
 **데이터 시각화를 위한 plot() 함수**: 시각화를 위해서는 기본 패키지의 plot()함수를 활용하며, 이 함수는 좌표축(axis)은 X와 Y로 구성되며, 좌표축의 라벨(label), 제목(title), 범례(legend), 표현요소, 보조요소 등의 인자로 구성됨 
+---
 
 ### 2.범주형 자료의 시각화
 - **막대 그래프:**
@@ -59,7 +60,7 @@ pie(pc1,
     cex.main = 1.4)
 ```
 ![파이 차트 실습결과](/Chap6/Pics/chap6_2.jpg)
-
+---
 
 ### 3.연속형 자료의 시각화
 - **상자 그래프:**연속형 자료의 데이터의 중위값(median), 흩어짐, 이상치(outlier) 등을 시각적으로 한눈에 보여줌
@@ -100,6 +101,7 @@ abline(h=m1, col="green", lty="solid", lwd=2)
 ```
 
 ![산점도 실습결과](/Chap6/Pics/chap6_4.jpg)
+---
 
 ### 4.시각화 고급(ggplot2)
 
@@ -136,3 +138,33 @@ ggplot(data = data3,
 ```
 
 ![ggplot2 막대그래프 실습결과](/Chap6/Pics/chap6_5.jpg)
+
+- **ggplot2 활용한 산점도:**
+```
+data4$sex <- factor(data4$sex, 
+                    levels = c("1", "2"), 
+                    labels = c("Male", "Female"))
+summary(data4)
+data4 <- data4[complete.cases(data4), ]
+
+library(ggplot2)
+
+library(ggplot2)
+ggplot(data = data4, 
+       aes(x=eng_abil, y=income,  shape = sex, color = sex))+
+  geom_point(size=1.5)+
+  labs(title = "Income vs. English Ability",
+       x="English Score(TOEIC)",
+       y="Salary per Month") +
+  scale_y_continuous(limits = c(0, 1000))+
+  theme(
+    plot.title = element_text(
+      family = "serif", 
+      face = "bold", 
+      size = 14,
+      color = "darkred",
+      hjust=0.5),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12)
+  )
+```
