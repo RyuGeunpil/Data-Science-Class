@@ -16,7 +16,7 @@
 **데이터 시각화를 위한 plot() 함수**: 시각화를 위해서는 기본 패키지의 plot()함수를 활용하며, 이 함수는 좌표축(axis)은 X와 Y로 구성되며, 좌표축의 라벨(label), 제목(title), 범례(legend), 표현요소, 보조요소 등의 인자로 구성됨 
 
 ### 2.범주형 자료의 시각화
-- **막대 그래표:**
+- **막대 그래프:**
 
 ```
 data3$income2 <- cut(data3$income,
@@ -61,4 +61,16 @@ pie(pc1,
 ![파이 차트 실습결과](/Chap6/Pics/chap6_2.jpg)
 
 
+### 3.연속형 자료의 시각화
+- **상자 그래프:**연속형 자료의 데이터의 중위값(median), 흩어짐, 이상치(outlier) 등을 시각적으로 한눈에 보여줌
 
+```
+boxplot(data3$income ~ sex, data = data3,
+        main = "incomes by sex",
+        xlab = "sex",
+        ylab = "incomes",
+        col = c("skyblue", "pink"),
+        outline = FALSE)
+```
+
+![상자 그래프 실습결과](/Chap6/Pics/chap6_3.jpg)
