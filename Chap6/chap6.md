@@ -46,7 +46,19 @@ text(x = income.graph,
   
 ![막대 그래프 실습결과](/Chap6/Pics/chap6_1.jpg)
 
+- **파이 차트:**
 
+```
+#graph 4
+pc1<- table(data3$sex)
+pie(pc1,
+    main = "성별",
+    col = c("royalblue", "darkgrey"),
+    labels = c("남성", "여성"),
+    border = "red",
+    cex.main = 1.4)
+```
+![파이 차트 실습결과](/Chap6/Pics/chap6_2.jpg)
 
 
 
