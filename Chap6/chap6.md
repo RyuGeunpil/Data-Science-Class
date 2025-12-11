@@ -18,10 +18,6 @@
 ### 2.범주형 자료의 시각화
 - **막대 그래표:**
 
-![막대 그래프 실습결과](/Chap6/Pics/chap6_1.jpg)
-
-(images/plot.png
-
 ```
 par(mfrow=c(1,2)) #두개 그래프 통합
 
@@ -56,3 +52,5 @@ legend("topright",
 dev.off() # 그래프 통합 해지
 ```
   
+![막대 그래프 실습결과](/Chap6/Pics/chap6_1.jpg)
+
