@@ -74,3 +74,30 @@ boxplot(data3$income ~ sex, data = data3,
 ```
 
 ![상자 그래프 실습결과](/Chap6/Pics/chap6_3.jpg)
+
+- **산점도:** 산점도(scatter plot)란 두 개의 연속형 변수 X, Y에 대응하는 케이스를 점의 형태로 표시하는 그래프
+
+```
+data4 <- subset(data1, select = c("g191a125", "g191i033", "g191sex") )
+colnames(data4)[1:3] <- c("income", "eng_abil", "sex")
+plot(data4$eng_abil, data4$income,
+     main = "소득과 영어능력간 산점도",
+     pch = 4,
+     xlab = "영어능력",
+     ylab = "소득",
+     col = ifelse(data4$sex == "1", "royalblue", "deeppink"), 
+     ylim = c(0,1000),
+     cex.lab = 1.2)
+legend("topright",                       # 범례 위치
+       legend = c("남자", "여자"),       # 범례 라벨
+       col = c("royalblue", "deeppink"), # 색상
+       pch = 4,                          # 점 모양
+       bty = "n")    
+m1 <- mean(data4$income, na.rm = T)
+m2 <- mean(data4$eng_abil, na.rm = T)
+abline(v=m2, col="red", lty="dashed", lwd=1)
+abline(h=m1, col="green", lty="solid", lwd=2)
+```
+
+![산점도 실습결과](/Chap6/Pics/chap6_4.jpg)
+
