@@ -19,38 +19,34 @@
 - **막대 그래표:**
 
 ```
-par(mfrow=c(1,2)) #두개 그래프 통합
+data3$income2 <- cut(data3$income,
+   breaks = c(-Inf, 100, 200, 300, 500, Inf),
+   labels = c("100이하", "200이하", "300이하", "400이하", "500이상"))
 
-#graph 1
-major <- table(data3$major)
-barplot(major,
-        xlab = "전공",
+income.table <- table(data3$income2)
+income.graph <- barplot(income.table,
+        xlab = "소득",
         ylab = "회수",
-        main = "전공비율",
-        col = "royalblue",
+        main = "소득구간별 빈도",
+        col = "red",
         horiz = F,
-        cex.main = 1.2,
+        cex.main = 1.4,
         cex.axis = 0.8,
-        cex.names = 1.1
+        cex.names = 0.9,
+        ylim = c(0,6000) 
 )
+text(x = income.graph,
+     y = income.table, 
+     labels = income.table, 
+     pos = 3,        # 막대 위쪽에 표시
+     cex = 0.8,      # 글씨 크기
+     col = "black")  # 글씨 색
 
-#graph 2
-cross_table1 <- table(data3$sex, data3$major)
-barplot(cross_table1,
-        col = c("royalblue", "skyblue"),
-        main = "성별과 전공 누적",
-        xlab = "선택",
-        ylab = "빈도",
-        cex.main = 1.2,
-        cex.axis = 0.8,
-        cex.names = 1.1
-)
-legend("topright",              
-       legend = c("남", "여"),  
-       fill = c("royalblue", "skyblue"))
-
-dev.off() # 그래프 통합 해지
 ```
   
 ![막대 그래프 실습결과](/Chap6/Pics/chap6_1.jpg)
+
+
+
+
 
