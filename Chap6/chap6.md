@@ -101,3 +101,39 @@ abline(h=m1, col="green", lty="solid", lwd=2)
 
 ![산점도 실습결과](/Chap6/Pics/chap6_4.jpg)
 
+### 4.시각화 고급(ggplot2)
+
+- **그래픽 전문함수 ggplot2 패키지:** ggplot2 패키지는 보다 전문화된 데이터 시각화 도구임
+
+**ggplot2 그래프 구성**
+#### Data Layer(data): 시각화를 위해 활용될 데이터세트를 지정함
+#### Aesthetics Layer(aes): 변수 지정과 시각화를 지정함
+#### Geom Layer(geom): 그래프의 형태를 지정(예: geom_point, geom_bar, …)
+#### 기타 layer:
+
+
+
+- **막대 그래프:**
+```
+data3 <- data3[complete.cases(data3), ]
+install.packages("ggplot2") #ggplot2 패키지설치
+library(ggplot2) #패키지 탑재
+ggplot(data = data3,
+       aes(x = major, fill = sex)) +
+  geom_bar(position = "dodge") +
+  labs(
+    title = "성별과 전공 분포",
+    x = "전공",
+    y = "빈도"
+  ) +
+  scale_fill_manual(values = c("royalblue", "skyblue"),
+                    name = "성별",
+                    labels = c("남", "여")) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.title = element_text(size = 13),
+    axis.text = element_text(size = 12)
+  )
+```
+
+![ggplot2 막대그래프 실습결과](/Chap6/Pics/chap6_5.jpg)
