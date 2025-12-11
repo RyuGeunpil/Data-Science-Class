@@ -14,6 +14,7 @@
 | **3변수(연속/연속/연속)**     | 키 & 몸무게 & 성적 | 등치선도(contour plot)                           |
 
 **데이터 시각화를 위한 plot() 함수**: 시각화를 위해서는 기본 패키지의 plot()함수를 활용하며, 이 함수는 좌표축(axis)은 X와 Y로 구성되며, 좌표축의 라벨(label), 제목(title), 범례(legend), 표현요소, 보조요소 등의 인자로 구성됨 
+
 ---
 
 ### 2.범주형 자료의 시각화
@@ -168,3 +169,6 @@ ggplot(data = data4,
     legend.text = element_text(size = 12)
   )
 ```
+
+![ggplot2 산점도 실습결과](/Chap6/Pics/chap6_9.jpg)
+
