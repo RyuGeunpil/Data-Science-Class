@@ -24,7 +24,25 @@ hist(means, breaks=seq(4, 6, 0.1), main = "Result of CLT", col = "pink", border 
 mean(means) #평균값을 확인하면 모수와 거의 일치함을 확인할 수 있다
 ``` 
   
+- **모집단이 이항분포와 중심극한 정리 시뮬레이션:**
+```
+#Binomial Distribution#
+set.seed(12345)
+f=10; p=.5; # f=10은 10번 실행, p=0.5는 성공할 확률, 따라서 이론적 평균값 mean = 5(10*0.5)가 됨
+S= rbinom(100, f,p)
+hist(S, breaks=24, main = "Binomial Distribution", col = "pink", border = "blue") #이항분포의 형태를 파악하여 정규분포가 아님을 확인함
 
+#CLM of Binomial Distribution
+means2 =numeric(0)          # a place to store the results
+for (i in 1:1000) {           # the for loop
+  S = rbinom(100,f,p)            # just 1 this time
+  means2[i]= mean(S) # store the answer
+} #모집단이 이항분포에서 10회 실행하고, 성공할 확률이 0.5인 표본을 100개 추출하여 이들의 평균값을 계산한 후, 1000회 반복실행 값을 means2에 저장  
+hist(means2, breaks=seq(4, 6, 0.1), main = "Result2 of CLT", col = "pink", border = "blue") #정규분포임을 확인
 
+mean(means2) #이론적 평균인 5와 일치함을 확인
+
+sd(means2) #이론적 표준편차인 sqrt(F*p*(1-p))값과 일치함을 확인
+```
 
  
