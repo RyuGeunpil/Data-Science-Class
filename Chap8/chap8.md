@@ -23,7 +23,7 @@ print(t.test1)
 ```
 
 
-
+![독립표본 t-검정 결과](/Chap8/chap8_1.jpg)
 
 
 
