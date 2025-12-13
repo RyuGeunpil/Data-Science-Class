@@ -84,3 +84,49 @@ mean(means4) #모집단의 평균과 일치함을 확인
 
 sd(means4) #1000개 평균표본의 표준오차의 값과 일치
 ```
+---
+
+### 3.t-분포와 t-검정의 이해
+- **데이터의 표준화:** 서로 다른 단위나 측정 범위를 가진 데이터를 공통의 평균과 표준편차를 기준으로 변환하여 비교 가능하게 만드는 과정
+
+```
+#평균이 0, 표준편차 1이 되도록 표준화
+mean(data3$income, na.rm = T)
+sd(data3$income, na.rm = T)
+
+data3$stad_income <- 
+(data3$income-205.352)/77.28852 #기존 데이터에 평균값을 빼준 후 표준편차로 나누어준다면 평균 0, 표준편차가 1이 됨
+
+mean(data3$stad_income, na.rm = T)
+sd(data3$stad_income, na.rm = T)
+```
+
+- **t-분포:** 평균이 0이고 표준편차가 1인 정규분포
+```
+#t distribution simulation
+set.seed(12345)
+df <- 100
+n <- 10000
+
+simulated_t_values <- rt(n, df)
+hist(simulated_t_values, breaks = 30, col = "skyblue", main = "T-Distribution (df = 100)",
+     xlab = "t-values", border = "white") #t-분포의 형태를 확인할 수 있음
+```
+##신뢰수준에 따른 임계치의 편화
+```
+qt(p=0.025, df = 30, lower.tail = T)
+qt(p=0.025, df = 30, lower.tail = F)
+qt(p=0.025, df = 1000, lower.tail = T)
+qt(p=0.025, df = 1000, lower.tail = F)
+```
+
+##유의확률의 의미: 귀무가설이 맞을 확률
+```
+#calculating p-value
+pt(q=2.5,df=30, lower.tail = T)
+
+pt(q=-2.5,df=30, lower.tail = T)
+
+p_value <- (pt(q=-2.5,df=30, lower.tail = T) + pt(q=2.5,df=30, lower.tail = F))
+print(p_value)
+```
