@@ -112,7 +112,7 @@ simulated_t_values <- rt(n, df)
 hist(simulated_t_values, breaks = 30, col = "skyblue", main = "T-Distribution (df = 100)",
      xlab = "t-values", border = "white") #t-분포의 형태를 확인할 수 있음
 ```
-### 신뢰수준에 따른 임계치의 편화
+#### 신뢰수준에 따른 임계치의 편화
 ```
 qt(p=0.025, df = 30, lower.tail = T)
 qt(p=0.025, df = 30, lower.tail = F)
@@ -120,7 +120,7 @@ qt(p=0.025, df = 1000, lower.tail = T)
 qt(p=0.025, df = 1000, lower.tail = F)
 ```
 
-### 유의확률의 의미: 귀무가설이 맞을 확률
+#### 유의확률의 의미: 귀무가설이 맞을 확률
 ```
 #calculating p-value
 pt(q=2.5,df=30, lower.tail = T)
@@ -133,7 +133,7 @@ print(p_value)
 
 ![t-값과 유의확률](/Chap7/chap7_1.jpg)
 
-### 신뢰구간 구하기
+#### 신뢰구간 구하기
 ```
 #Calculating confidence interval
 sample1 <- rnorm(1000,10,20) 
