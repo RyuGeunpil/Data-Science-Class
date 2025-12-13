@@ -112,7 +112,7 @@ simulated_t_values <- rt(n, df)
 hist(simulated_t_values, breaks = 30, col = "skyblue", main = "T-Distribution (df = 100)",
      xlab = "t-values", border = "white") #t-분포의 형태를 확인할 수 있음
 ```
-##신뢰수준에 따른 임계치의 편화
+## 신뢰수준에 따른 임계치의 편화
 ```
 qt(p=0.025, df = 30, lower.tail = T)
 qt(p=0.025, df = 30, lower.tail = F)
@@ -120,7 +120,7 @@ qt(p=0.025, df = 1000, lower.tail = T)
 qt(p=0.025, df = 1000, lower.tail = F)
 ```
 
-##유의확률의 의미: 귀무가설이 맞을 확률
+## 유의확률의 의미: 귀무가설이 맞을 확률
 ```
 #calculating p-value
 pt(q=2.5,df=30, lower.tail = T)
@@ -129,4 +129,33 @@ pt(q=-2.5,df=30, lower.tail = T)
 
 p_value <- (pt(q=-2.5,df=30, lower.tail = T) + pt(q=2.5,df=30, lower.tail = F))
 print(p_value)
+```
+
+
+## 신뢰구간 구하기
+```
+#Calculating confidence interval
+sample1 <- rnorm(1000,10,20) 
+print(mean(sample1))
+
+print(sd(sample1))
+
+sample1.n <- length(sample1)
+sample1.mean <- mean(sample1)
+sample1.sd <- sd(sample1)
+sample1.se <- sample1.sd/sqrt(sample1.n)
+print(sample1.se)
+
+degrees.freedom = sample1.n - 1
+t.score1 <- 
+qt(p=0.025, df=degrees.freedom,lower.tail=F) #upper bound
+t.score2 <- 
+qt(p=0.025, df=degrees.freedom,lower.tail=T) #lower bound
+
+lower.bound 
+<- sample1.mean +t.score2*sample1.se
+upper.bound 
+<- sample1.mean +t.score1*sample1.se
+
+print(c(lower.bound,upper.bound))
 ```
