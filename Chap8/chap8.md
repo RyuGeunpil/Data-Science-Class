@@ -116,4 +116,4 @@ print(ssw+ssb)
 TukeyHSD(anova_result)
 plot(TukeyHSD(anova_result))
 ```
-
+![ANOVA 시흐검정](/Chap8/chap8_3.jpg)
