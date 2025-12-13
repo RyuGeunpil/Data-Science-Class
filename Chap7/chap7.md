@@ -131,6 +131,7 @@ p_value <- (pt(q=-2.5,df=30, lower.tail = T) + pt(q=2.5,df=30, lower.tail = F))
 print(p_value)
 ```
 
+![t-값과 유의확률](/Chap7/chap7_1.jpg)
 
 ### 신뢰구간 구하기
 ```
