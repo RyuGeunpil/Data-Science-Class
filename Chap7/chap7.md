@@ -19,9 +19,9 @@ means =numeric(0)
 for (i in 1:1000) {        
   S = rpois(100, 5)            
   means[i]= mean(S) 
-} #모수가 5인 포아송 본포로부터 100개의 표본을 추출하여 평균값을 계산하는 것을 1000회 반복실행하여 means 값으로 저정한다는 의미
+} #위 분포로부터 100개의 표본을 추출하여 평균값을 계산하는 것을 1000회 반복실행하여 means 값으로 저정한다는 의미
 hist(means, breaks=seq(4, 6, 0.1), main = "Result of CLT", col = "pink", border = "blue") #1000개 표본평균들의 분포를 확인함
-mean(means) #평균값을 확인하면 모수와 거의 일치함을 확인할 수 있다
+mean(means) #1000개 표본평균들의 이론적 표준오차 값과 일치함을 확인할 수 있다
 ``` 
   
 - **모집단이 이항분포와 중심극한 정리 시뮬레이션:**
@@ -37,12 +37,12 @@ means2 =numeric(0)          # a place to store the results
 for (i in 1:1000) {           # the for loop
   S = rbinom(100,f,p)            # just 1 this time
   means2[i]= mean(S) # store the answer
-} #모집단이 이항분포에서 10회 실행하고, 성공할 확률이 0.5인 표본을 100개 추출하여 이들의 평균값을 계산한 후, 1000회 반복실행 값을 means2에 저장  
+} #위 분포로부터 100개 추출하여 이들의 평균값을 계산하는 1000회 반복실행 값을 means2에 저장  
 hist(means2, breaks=seq(4, 6, 0.1), main = "Result2 of CLT", col = "pink", border = "blue") #정규분포임을 확인
 
 mean(means2) #이론적 평균인 5와 일치함을 확인
 
-sd(means2) #이론적 표준편차인 sqrt(F*p*(1-p))값과 일치함을 확인
+sd(means2) #1000개 평균값들의 표준오차인 sqrt(F*p*(1-p))값과 일치함을 확인
 ```
 
 - **모집단이 균등분포와 중심극한 정리 시뮬레이션:**
@@ -57,10 +57,30 @@ means3 =numeric(0)
 for (i in 1:1000) {           
   S = runif(100,1,5)          
   means3[i]= mean(S) # store the answer
-} #최소값1, 쵝대값 5인 모집단이 균등분포로부터 100개의 표본을 추출한 후 이들의 평균값을 계산하고, 이를 1000회 반복하여 평균값들을 mean3에 저장함 
+} #위 모집단으로부터 100개의 표본을 추출한 후 이들의 평균값을 계산하는 1000회 반복하여 평균값들을 mean3에 저장함 
 hist(means3, breaks=seq(2.5, 3.5, 0.01), main = "Result3 of CLT", col = "pink", border = "blue") #정규분포임을 확인할 수 있음
 
 mean(means3) #균등분포의 이론적 평균값인 3(=(1+5)/2)임을 확인할 수 있음
 
-sd(means3) # 균등분포의 이론적 표준편차 값인 0.116((=1.155/10)과 거의 일치함을 확인할 수 있음
+sd(means3) # 1000개 평균들의 표준오차 값인 0.116((=1.155/10)과 거의 일치함을 확인할 수 있음
 ``` 
+
+- **모집단이 정규분포인 중심극한 정리 시뮬레이션:**
+```
+#Normal Distribution#
+set.seed(12345)
+S = rnorm(1000, 0, 1) #모집단의 평균이 0, 표준편차가 1인 정규분포로부터 1000개의 표본을 추출함
+hist(S, breaks=24, main = "Normal Distribution", col = "pink", border = "blue") #모집단과 같은 정규분포임을 확인
+
+#CLM of Normal Distribution#
+means4 =numeric(0)          
+for (i in 1:1000) {           
+  S = rnorm(100,0,1)          
+  means4[i]= (mean(S))
+} #위 모집단으로부터 추출된 100개의 표본을 추출한 다음에 이들의 평균값을 계산하는 1000회 수행하여 평균값들을 mean4에 저장
+hist(means4, breaks=seq(-1, 1, 0.05), main = "Result4 of CLT", col = "pink", border = "blue") #정규분포임을 확인
+
+mean(means4) #모집단의 평균과 일치함을 확인
+
+sd(means4) #1000개 평균표본의 표준오차의 값과 일치
+```
