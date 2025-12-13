@@ -45,4 +45,22 @@ mean(means2) #이론적 평균인 5와 일치함을 확인
 sd(means2) #이론적 표준편차인 sqrt(F*p*(1-p))값과 일치함을 확인
 ```
 
- 
+- **모집단이 균등분포와 중심극한 정리 시뮬레이션:**
+```
+#Uniform Distribution#
+set.seed(12345)
+S = runif(100, 1, 5) #모집단이 최소값 1, 최대값 5 균등분포에서 표본 100개를 추출 
+hist(S, breaks=24, main = "Uniform Distribution", col = "pink", border = "blue") #균등분포의 형태를 확인
+
+#Central Limit Theorem
+means3 =numeric(0)          
+for (i in 1:1000) {           
+  S = runif(100,1,5)          
+  means3[i]= mean(S) # store the answer
+} #최소값1, 쵝대값 5인 모집단이 균등분포로부터 100개의 표본을 추출한 후 이들의 평균값을 계산하고, 이를 1000회 반복하여 평균값들을 mean3에 저장함 
+hist(means3, breaks=seq(2.5, 3.5, 0.01), main = "Result3 of CLT", col = "pink", border = "blue") #정규분포임을 확인할 수 있음
+
+mean(means3) #균등분포의 이론적 평균값인 3(=(1+5)/2)임을 확인할 수 있음
+
+sd(means3) # 균등분포의 이론적 표준편차 값인 0.116((=1.155/10)과 거의 일치함을 확인할 수 있음
+``` 
