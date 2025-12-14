@@ -53,5 +53,12 @@ print(t_value)
 p_value <- (pt(q=-t_value,df=18, lower.tail = T) + pt(q=t_value,df=18, lower.tail = F))
 print(p_value)
 ```
+---
+
+### 3.선형 회귀분석(Linear Regression)
+- **선형 회귀분석이란?:** X 변수들과 Y의 관계를 선형으로 가정하고, X가 Y에 미치는 영향 정도를 파악하는 분석
+
+#### 회귀 계수와 최소자승법(OLS)
 
 
+<img src="/Chap9/9_3.jpg" alt="회귀계수" width="50%">
