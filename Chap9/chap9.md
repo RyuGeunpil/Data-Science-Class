@@ -60,8 +60,28 @@ print(p_value)
 
 #### 회귀 계수: 아래 그림의 beta(β ̂_0, β ̂_1)를 의미함
 
-
 <img src="/Chap9/9_4.jpg" alt="회귀계수" width="50%">
 
 #### 최소자승법(OLS): 잔차를 최소화하기 위한 회귀계수를 구하는 방법
 <img src="/Chap9/9_5.jpg" alt="최소자승법" width="50%">
+
+- ** lm() 함수를 통한 선형 회귀분석 실습**
+```
+#시뮬레이션 데이터생성
+
+set.seed(123)
+X <- rnorm(30, mean = 50, sd = 10) #평균 50, 표준편차 10인 모수에서 30개의 난수 추출하여 X로 입력
+Y <- 2 * X + 5 + rnorm(30, mean = 0, sd = 5) #Y= 2*X+5 + 오차(평균 0이고 표준편차 5인 난수 생성)
+reg_data <- data.frame(X = X, Y = Y) #Y와 X를 데이터프레임으로 데잉터구조 입력
+
+
+#회귀분석
+reg_model1 <- lm(Y ~ X, data = reg_data) #lm() 함수를 통해 이 모형의 결과값을 reg_model1로 저정
+summary(reg_model1) #r결과값을 보여줌
+
+#회귀모형 Y 예측값
+reg_data$predicted_Y <- predict(reg_model1) #위 모형의 예측값을 predicted_Y로 저장
+cor2 <- cor(reg_data$Y, reg_data$predicted_Y)  #r2값의 증명(Y의 예측값과 실제값의 상관계수의 제곱과 같음
+print(cor2)
+```
+
