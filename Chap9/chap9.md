@@ -21,8 +21,9 @@ print(covariance) #공분산 값 확인, 위 값과 일치함을 확인할 수 �
 ```
 
 ### 2.상관분석(Correlational Analysis)
-- **상관분석이란?:** 두 연속형 변수(예, 몸무게-키, 소득-행복도) 간의 선형적인 관계에서의 방향과 강도를 분석하는 통계 기법
+- **상관분석이란?:** 두 연속형 변수(예, 몸무게-키, 소득-행복도) 간의 선형적인 관계에서의 방향과 강도를 분석하는 통계 기법(공분산의 표준화 값)
 
+#### 상관계수 계산: cor() 함수 사용
 <img src="/Chap9/9_3.jpg" alt="상관계수" width="50%">
 
 ```
@@ -35,3 +36,22 @@ sdY <- sd(Y)
 corr <- covariance/(sdX*sdY)
 print(corr)
 ```
+
+#### 상관계수의 t-검정: cor.test()함수
+```
+# 상관계수 통계적 검정
+correlation2 <- cor.test(X, Y, method = "pearson")
+print(correlation2)
+
+# t-값 계산
+t_value <- (correlation * sqrt(20 - 2)) / 
+sqrt(1 - correlation^2)
+print(t_value)
+
+
+# p-value (양측검정)
+p_value <- (pt(q=-t_value,df=18, lower.tail = T) + pt(q=t_value,df=18, lower.tail = F))
+print(p_value)
+```
+
+
