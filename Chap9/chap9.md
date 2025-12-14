@@ -85,3 +85,4 @@ cor2 <- cor(reg_data$Y, reg_data$predicted_Y)  #r2값의 증명(Y의 예측값�
 print(cor2)
 ```
 
+<img src="/Chap9/9_6.jpg" alt="회귀분석 결과" width="50%">
