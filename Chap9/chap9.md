@@ -61,4 +61,4 @@ print(p_value)
 #### 회귀 계수와 최소자승법(OLS)
 
 
-<img src="/Chap9/9_3.jpg" alt="회귀계수" width="50%">
+<img src="/Chap9/9_4.jpg" alt="회귀계수" width="50%">
