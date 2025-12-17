@@ -33,6 +33,8 @@ prp(employed.tree,
     box.palette = "Blues",
     roundint = FALSE) #prp 그림 구성 지정
 ```
+---
+
 
 ### 2.상관분석(Correlational Analysis)
 - **상관분석이란?:** 두 연속형 변수(예, 몸무게-키, 소득-행복도) 간의 선형적인 관계에서의 방향과 강도를 분석하는 통계 기법(공분산의 표준화 값)
