@@ -64,3 +64,29 @@ varImpPlot(rf_model1) #중요도 값을 확인
 <img src="/Chap10/10_2.jpg" alt="랜덤포레스트 특징 중요도" width="50%">
 
 ---
+
+### 3.K-Means 군집분석(K-Means Clustering)
+- **K-Means 군집준석이란?:** 데이터를 기반으로 최대한 비슷한 그룹으로 사례(case)를 구분하는 비지도학습의 대표적 방법
+
+#### K-Means 알고리즘
+
+#### kmeans() 함수를 통한 실습
+```
+#Data Setting
+str(iris)
+iris.km <- iris[1:4]
+
+#Kmeans analysis
+iris.kms <- kmeans(iris.km, centers = 3, nstart = 25)
+#visualization
+install.packages("factoextra")
+library(factoextra)
+fviz_cluster(iris.kms, data = iris.km)
+
+#accuracy 
+actual_species <- iris$Species
+predicted_clusters <- iris.kms$cluster
+table(predicted_clusters, iris$Species)
+```
+
+<img src="/Chap10/10_3.jpg" alt="K-Means 군집분석 결과 시각화" width=
