@@ -33,9 +33,31 @@ prp(employed.tree,
     box.palette = "Blues",
     roundint = FALSE) #prp 그림 구성 지정
 ```
+
 <img src="/Chap10/10_1.jpg" alt="의사결정나무 결과" width="50%">
 ---
 
 
-### 2.상관분석(Correlational Analysis)
-- **상관분석이란?:** 두 연속형 변수(예, 몸무게-키, 소득-행복도) 간의 선형적인 관계에서의 방향과 강도를 분석하는 통계 기법(공분산의 표준화 값)
+### 2.랜덤포레스트(RandomForest)
+- **랜텀포레스트?:** 의사결정나무의 단점을 보완하기 위해서 하위 표본을 중심으로 다수의 의사결정나무 결과를 종합하여 최종적으로 분류를 시도함
+
+#### 앙상블 기법: 앙상블이란 여러 개의 모형 결과를 최종적으로 다시 평가하여 최적의 결과를 도출하는 방법
+
+#### randomForest()함수를 통한 랱덤포레스트 실습
+
+```
+#Random Forest
+#install.packages("randomForest") #랜덤포레스트 패키지 설치
+library(randomForest) #랜덤포레스트 함수 탑재
+
+set.seed(12345) #임의의 난수 설정으로 알고리즘 실시
+rf_model1 <- randomForest(fulltime_job ~ collge_types + degree_types 
+                          + univ + major + inseoul, 
+                          data = dc.data,
+                          ntree = 500, mtry = 3, importance = TRUE)
+print(rf_model1)
+importance(rf_model1) #importance 함수를 통해 중요도 파악
+varImpPlot(rf_model1) #중요도 값을 확인
+```
+
+<img src="/Chap10/10_2.jpg" alt="랜덤포레스트 특징 중요도" width="50%">
