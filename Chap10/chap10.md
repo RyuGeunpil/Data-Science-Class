@@ -89,6 +89,6 @@ predicted_clusters <- iris.kms$cluster
 table(predicted_clusters, iris$Species)
 ```
 
-<img src="/Chap10/10_3.jpg" alt="K-Means 군집분석 결과 시각화" width=
+<img src="/Chap10/10_3.jpg" alt="K-Means 군집분석 결과 시각화" width="50%">
 
 ---
