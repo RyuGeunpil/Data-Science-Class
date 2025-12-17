@@ -33,6 +33,7 @@ prp(employed.tree,
     box.palette = "Blues",
     roundint = FALSE) #prp 그림 구성 지정
 ```
+<img src="/Chap10/10_1.jpg" alt="의사결정나무 결과" width="50%">
 ---
 
 
