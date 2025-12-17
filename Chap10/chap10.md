@@ -35,6 +35,7 @@ prp(employed.tree,
 ```
 
 <img src="/Chap10/10_1.jpg" alt="의사결정나무 결과" width="50%">
+
 ---
 
 
@@ -61,3 +62,5 @@ varImpPlot(rf_model1) #중요도 값을 확인
 ```
 
 <img src="/Chap10/10_2.jpg" alt="랜덤포레스트 특징 중요도" width="50%">
+
+---
