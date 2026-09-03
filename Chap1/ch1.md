@@ -12,3 +12,4 @@ https://cran.r-project.org/bin/windows/base/
 ```
 https://posit.co/downloads
 ```
+### 2. RStudio 구성이해
