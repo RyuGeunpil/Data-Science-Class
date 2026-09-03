@@ -13,3 +13,4 @@ https://cran.r-project.org/bin/windows/base/
 https://posit.co/downloads
 ```
 ### 2. RStudio 구성이해
+![RStudio구성창](/Chap1/구성창.jpg)
